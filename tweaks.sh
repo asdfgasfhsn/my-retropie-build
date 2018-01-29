@@ -23,13 +23,13 @@ function mame_row(){
   # XXX find a nicer way to modify gamelist.xml
   echo -n 'Installing MAME ROW Script...'
   cd ~/RetroPie/retropiemenu/
-  curl -GO# https://raw.githubusercontent.com/asdfgasfhsn/retropie-mame-row/master/mame-row-custom-collection.sh
+  wget -nv https://raw.githubusercontent.com/asdfgasfhsn/retropie-mame-row/master/mame-row-custom-collection.sh
   chmod +x mame-row-custom-collection.sh
   echo ' done'
 
   echo -n 'Installing MAME ROW icon...'
   cd ~/RetroPie/retropiemenu/icons/
-  curl -GO# https://raw.githubusercontent.com/asdfgasfhsn/retropie-mame-row/master/artwork/mame-row.png
+  wget -nv https://raw.githubusercontent.com/asdfgasfhsn/retropie-mame-row/master/artwork/mame-row.png
   echo ' done'
 
   echo -n 'Adding MAME ROW metadata to RetroPie gamelist.xml...'
