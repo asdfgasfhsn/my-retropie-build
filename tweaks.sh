@@ -45,3 +45,8 @@ function install_theme(){
   sudo git clone --depth 1 https://github.com/asdfgasfhsn/es-theme-art-book.git my-art-book
   echo ' done'
 }
+
+function get_overlays(){
+  wget -nv https://github.com/cosmo0/retropie-overlays/releases/download/v1.2/overlays_shaders.zip
+  wget -nv https://github.com/cosmo0/retropie-overlays-arcade-realistic/releases/download/v1.1/overlays.zip
+}
