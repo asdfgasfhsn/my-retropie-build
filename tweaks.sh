@@ -50,3 +50,10 @@ function get_overlays(){
   wget -nv https://github.com/cosmo0/retropie-overlays/releases/download/v1.2/overlays_shaders.zip
   wget -nv https://github.com/cosmo0/retropie-overlays-arcade-realistic/releases/download/v1.1/overlays.zip
 }
+
+function enable_screeper(){
+  echo 'screenshot_directory = "/home/pi/screenshots/"' >> /opt/retropie/configs/all/retroarch.cfg
+  echo ' auto_screenshot_filename = "false"' >> /opt/retropie/configs/all/retroarch.cfg
+  cp screeper.sh /opt/retropie/configs/all/runcommand-onend.sh
+  chmod +x /opt/retropie/configs/all/runcommand-onend.sh
+}
