@@ -57,3 +57,41 @@ function enable_screeper(){
   cp screeper.sh /opt/retropie/configs/all/runcommand-onend.sh
   chmod +x /opt/retropie/configs/all/runcommand-onend.sh
 }
+
+function force_x11_resolution(){
+cat >/usr/share/X11/xorg.conf.d/05-monitor.conf <<EOL
+Section "Monitor"
+   Identifier "Monitor0"
+   Modeline "1920x1080_60.00" 173.00 1920 2048 2248 2576 1080 1083 1088 1120 -hsync +vsync
+EndSection
+Section "Device"
+   Identifier "Device0"
+   Driver "intel"
+EndSection
+Section "Screen"
+   Identifier "Screen0"
+   Device "Device0"
+   Monitor "Monitor0"
+   DefaultDepth 24
+   SubSection "Display"
+      Depth 24
+      Modes "1920x1080"
+   EndSubSection
+EndSection
+EOL
+}
+
+function disable_x11_ps_controller_mouse(){
+cat >/usr/share/X11/xorg.conf.d/90-dualshock3.conf <<EOL
+Section "InputClass"
+  Identifier	"Disable PS3"
+  MatchProduct	"PLAYSTATION"
+  Option	"Ignore" "on"
+EndSection
+EOL
+
+}
+
+function force_pulse_hdmi_audio(){
+  echo "set-card-profile 0 output:hdmi-stereo-extra2" >> /etc/pulse/default.pa
+}
